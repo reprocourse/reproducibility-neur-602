@@ -1,0 +1,190 @@
+\documentclass[11pt, letter]{article}
+\usepackage[inner=1.5cm,outer=1.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{bbding, pmboxdraw}
+\usepackage[usenames,dvipsnames]{color}
+\definecolor{blue}{rgb}{0,0,.6}
+\definecolor{pink}{rgb}{.75, 0, .31}
+\definecolor{green}{rgb}{.22, .75, 0}
+\usepackage[bookmarks=true]{hyperref}
+\hypersetup{%
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=blue,       % color of internal links
+    citecolor=blue,       % color of links to bibliography
+    urlcolor=blue,		  % color of external links
+}
+\usepackage{apacite}
+\usepackage{natbib}
+
+\fancyfoot[C]{Page \thepage\ of \pageref{LastPage}}
+\newcommand{\doi}[1]{\url{https://doi.org/#1}}
+\pagestyle{fancyplain}
+\fancyhead[LO]{}
+\fancyhead[RO]{}
+\renewcommand{\headrulewidth}{0pt} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\begin{center}
+\LARGE Addressing reproducibility in the neurosciences and neuroimaging: Statistical, computational, and sociological aspects
+\end{center}
+\begin{center}
+\large Fall 2018
+\end{center}
+
+\begin{center}
+\rule{6in}{0.4pt}
+\begin{minipage}{6in}
+\def\arraystretch{1.5}
+\begin{tabular}{@{}llccll}
+\large\textbf{Instructor:} & Jean-Baptiste Poline & & & \large\textbf{Time:} & TR 14:30 -- 17:30 \\
+\large\textbf{Email:} &  \href{mailto:jean-baptiste.poline@mcgill.ca}{jean-baptiste.poline@mcgill.ca} & & & \large\textbf{Place:} & Rasmussen Reading Room
+\end{tabular}
+\end{minipage}
+\rule{6in}{0.4pt}
+\end{center}
+\vspace{.5cm}
+\setlength{\unitlength}{1in}
+\renewcommand{\arraystretch}{2}
+
+\noindent\large\textbf{Course Pages:} \begin{enumerate}
+\item figshare collection: \url{https://figshare.com/s/a80c1bec9a5996d36b0c}
+\item GitHub classroom: \url{https://classroom.github.com/classrooms/42415240-reprocourse} 
+\end{enumerate}
+
+\vskip.15in
+\noindent\large\textbf{Objectives:}  This series of journal club readings will give students a solid background in the reproducibility and replication issues in the neurosciences and brain imaging, and introduce solutions that can be implemented for reproducible and replicable science. The statistical, methodological, computational and sociological aspects of the topic will be reviewed through these articles, as well as the implementation of solutions. After this course, students should be able to identify reproducibility issues in neuroscience literature and apply the principles of reproducible, reusable, and efficient research in their work.
+
+\vskip.15in
+\noindent\large\textbf{Prerequisites:}
+An undergraduate-level understanding of statistics is assumed. 
+
+\vskip.15in
+\noindent\large\textbf{Office Hours:} Fridays 11:00--12:30 in WB210 or by appointment. Students are also encouraged to post questions in the \href{https://brainhack.slack.com/messages/CCM3Z655E/}{reprocourse channel} on the \href{https://brainhack-slack-invite.herokuapp.com/}{Brainhack Slack}.
+
+\vskip.15in
+\noindent\large\textbf{Class Policy:}
+\begin{itemize}
+\item Regular attendance is essential and expected.
+\item In accordance with \href{https://www.mcgill.ca/secretariat/files/secretariat/charter_of_student_rights_last_approved_october_262017.pdf}{McGill University's Charter of Students' Rights}, students in this course have the right to submit in English or in French any written work that is to be graded.
+\end{itemize}
+
+\vskip.15in
+\noindent\large\textbf{Grading Policy:} There is no exam for this course. Participation and ability to critically analyse information for each class will account for 50\% of the grade. The remaining 50\% of the grade is derived from a mock grant proposal (25\%), and an oral presentation of the grant (25\%). In an effort to train students for oral
+presentation, the students will present their mock grant orally on the last day during a 15 minute
+talk during which they will have the opportunity to address comments from the instructors on the
+mock grant and expose the background, hypothesis and experimental strategy.
+
+\vskip.15in
+\noindent\large\textbf{Academic Integrity:} McGill University values academic integrity. Therefore all students must understand the meaning and consequences of cheating, plagiarism and other academic offences under the Code of Student Conduct and Disciplinary Procedures (see \url{www.mcgill.ca/students/srr} for more information).
+
+\pagebreak
+\noindent\large\textbf{Course Outline:} Each week, students will be provided with \textcolor{pink}{course readings} as well as \textcolor{green}{practical exercises} related to reproducibility in the neurosciences and neuroimaging. These are intended to complement one another and provide students with hands-on experience implementing methodological solutions to problems detailed in the week's readings. Discussions for each week will be broadly grouped as considering either the sociological, statistical, or computational aspects of reproducibility. \\
+
+\noindent\emph{Reproducibility in life sciences: Some background}
+------------------------------------------------------
+\vspace{8pt}
+
+\noindent\textbf{Sept. 6}: Landmark papers in the reproducibility crisis in life sciences
+\begin{itemize}
+\item[] {\color{pink}{\Rectangle}} \cite{begley2012drug}: Raise standards
+\item[] {\color{pink}{\Rectangle}} \cite{baggerly2009deriving}: Forensic analysis
+\item[] {\color{green}{\Rectangle}} \href{http://swcarpentry.github.io/shell-novice/}{Working in a UNIX environment}
+\end{itemize}
+
+\noindent\textbf{Sept. 13}: General description of the issue and a first open science response
+\begin{itemize}
+\item[] {\color{pink}{\Rectangle}} \cite{academy2015reproducibility}: Reproducibility and Reliability of Biomedical Research
+\item[] {\color{pink}{\Rectangle}} \cite{open2015estimating}: The reproducibility project
+\item[] {\color{green}{\Rectangle}} \href{https://swcarpentry.github.io/git-novice/}{Introduction to Git} for version control
+\end{itemize}
+
+\noindent\textbf{Sept. 20}: Some sociological and general aspects
+\begin{itemize}
+\item[] {\color{pink}{\Rectangle}} \cite{smaldino2016natural}: The natural selection of bad science
+\item[] {\color{pink}{\Rectangle}} \cite{allison2016reproducibility}: A tragedy of errors
+\item[] {\color{green}{\Rectangle}} \href{https://mozilla.github.io/open-leadership-training-series/articles/get-your-project-online/}{Introduction to GitHub} for collaboration
+\end{itemize}
+
+\noindent\textbf{Sept. 27}: Some general solutions and principles
+\begin{itemize}
+\item[] {\color{pink}{\Rectangle}} \cite{wilkinson2016fair}: The FAIR principles
+\item[] {\color{pink}{\Rectangle}} \cite{bosman2017scholarly}: The scholarly common principles
+\item[] {\color{green}{\Rectangle}} Introduction to \href{https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/02.00-Introduction-to-NumPy.ipynb}{NumPy} and \href{https://github.com/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/03.00-Introduction-to-Pandas.ipynb}{Pandas}
+\end{itemize}
+
+\vskip.1in
+\noindent\emph{Some statistical aspects}
+------------------------------------------------------
+\vspace{8pt}
+
+\noindent\textbf{Oct. 4}: Power issues: the initial reports
+\begin{itemize}
+\item[] {\color{pink}{\Rectangle}} \cite{ioannidis2005most}: Why most research results are false
+\item[] {\color{pink}{\Rectangle}} \cite{button2013power}: Power failure
+\item[] {\color{green}{\Rectangle}} Using \href{http://www.scipy-lectures.org/packages/statistics/index.html}{Python for statistics}
+\end{itemize}
+
+\pagebreak
+
+\noindent\textbf{Oct. 11}: Power issues: the more recent reports
+\begin{itemize}
+\item[] {\color{pink}{\Rectangle}} \cite{poldrack2017scanning}: Scanning the horizon
+\item[] {\color{pink}{\Rectangle}} \cite{dumas2017low}: Three biomedical examples
+\end{itemize}
+
+\noindent\textbf{Oct. 18}:  Guest lecture by \href{https://sites.google.com/site/paramitasaharesearch/}{Dr. Paramita S. Chaudhuri}
+\begin{itemize}
+\item[] {\color{pink}{\Rectangle}} \cite{rosenthal1979file}: The file drawer effect
+\item[] {\color{pink}{\Rectangle}} \cite{simmons2011false}: \emph{p}-hacking
+\item[] {\color{pink}{\Rectangle}} \cite{simonsohn2014p}: \emph{p}-curve
+\end{itemize}
+
+\noindent\textbf{Oct. 25}: Proposal for redefining \emph{p}-values and response
+\begin{itemize}
+\item[] {\color{pink}{\Rectangle}} \cite{benjamin2018redefine}: Redefining \emph{p}-value
+\item[] {\color{pink}{\Rectangle}} \cite{lakens2018justify}: Justify your alpha
+\item[] {\color{green}{\Rectangle}} An experiment in \href{http://shinyapps.org/apps/p-hacker/}{\emph{p}-hacking}
+\end{itemize}
+\vskip.1in
+
+\noindent\emph{Some computational aspects, with examples from neuroimaging}
+--------------------------------------
+\vspace{8pt}
+
+\noindent\textbf{Nov 1st}: Software or software use issues
+\begin{itemize}
+\item[] {\color{pink}{\Rectangle}} \cite{eklund2016cluster}: (fMRI) Cluster failure
+\item[] {\color{pink}{\Rectangle}} \cite{varoquaux2017cross}: Cross-validation failure
+\item[] {\color{green}{\Rectangle}} \href{https://www.slideshare.net/chrisfilo1/docker-for-scientists}{Introduction to containers}
+\end{itemize}
+
+\noindent\textbf{Nov 15}: Some Computational aspects
+\begin{itemize}
+\item[] {\color{pink}{\Rectangle}} \cite{glatard2015reproducibility}: OS dependencies
+\item[] {\color{pink}{\Rectangle}} \cite{bowring2018exploring}: Same data, different results
+\item[] {\color{pink}{\Rectangle}} \cite{carp2012plurality}: Pipeline flexibility
+\item[] {\color{green}{\Rectangle}} Containers, continued
+\end{itemize}
+
+\noindent\textbf{Nov 22}: Examples of replications and of reproducible articles
+\begin{itemize}
+\item[] {\color{pink}{\Rectangle}} \cite{boekel2015purely}: A pure replication study
+\item[] {\color{pink}{\Rectangle}} \cite{waskom2014frontoparietal}: An entirely reproducible article
+\end{itemize}
+
+\noindent\textbf{Nov 29}: Community based standards
+\begin{itemize}
+\item[] {\color{pink}{\Rectangle}} \cite{nichols2017best}: The COBIDAS report
+\item[] {\color{pink}{\Rectangle}} \cite{gorgolewski2016brain}: The BIDS standard
+\end{itemize}
+
+\vspace*{.15in}
+\bibliographystyle{apacite}
+\bibliography{refs}
+
+%%%%%% THE END 
+\end{document} 
